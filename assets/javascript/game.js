@@ -6,6 +6,7 @@ $(document).ready(function () {
     var couterAttack;
     var characterChosen = false;
     var chooseEnemy = false;
+    var enemyName;
 
     var buttonClicked;
     //Functions===================
@@ -62,48 +63,63 @@ $(document).ready(function () {
         $(":button").on("click", function () {
             if ((this.id == "char1") && ($("#defender").html().length == 0)) {
                 alert("char1 has been clicked")
-                $("#charBlock1").appendTo("#defender");
+                $("#charBlock1").appendTo("#defender").addClass("rival rival1");
+                couterAttack = 8;
             } else if ((this.id == "char2") && ($("#defender").html().length == 0)) {
                 alert("char2 has been clicked")
-                $("#charBlock2").appendTo("#defender");
-
+                $("#charBlock2").appendTo("#defender").addClass("rival rival2");
+                couterAttack = 10;
             } else if ((this.id == "char3") && ($("#defender").html().length == 0)) {
                 alert("char3 has been clicked")
-                $("#charBlock3").appendTo("#defender");
-
+                $("#charBlock3").appendTo("#defender").addClass("rival rival3");
+                couterAttack = 12;
             } else if ((this.id == "char4") && ($("#defender").html().length == 0)) {
                 alert("char4 has been clicked")
-                $("#charBlock4").appendTo("#defender");
-
+                $("#charBlock4").appendTo("#defender").addClass("rival rival4");
+                couterAttack = 15;
             }
         })
     }
-    setUp()
-
-
-
-
-
-
-    // function setUpEnemy() {
-    //     if (($("#chosenCharacter").has("#char1")) = true) {
-    //         // $("#char1").prop('disabled', true);
-    //         alert("already choosen")
-    //     }
-    // }
-
-
-
-
-
 
     //GAME RUN=============
-
+    setUp();
+    attckPwr();
 
 
 
     //4. The attack power of chosen character will increase for every button attack clicked.
+    function attckPwr() {
+        var attackPower = 0;
 
+        $("#attackBtn").on("click", function () {
+            if ($("div.rivalArea > div").hasClass("rival")) {
+                enemyName = $("#name").html();
+                console.log(enemyName);
+            }
+
+            if ($("#char1").is(":disabled")) {
+                attackPower += 6;
+                console.log(attackPower)
+                $("#infoAttack").html("You attacked " + enemyName + " for " + attackPower + " damages");
+
+            } else if ($("#char2").is(":disabled")) {
+                attackPower += 8;
+                console.log(attackPower)
+                $("#infoAttack").html("You attacked " + enemyName + " for " + attackPower + " damages");
+            } else if ($("#char3").is(":disabled")) {
+                attackPower += 10;
+                console.log(attackPower)
+                $("#infoAttack").html("You attacked " + enemyName + " for " + attackPower + " damages");
+            } else if ($("#char4").is(":disabled")) {
+                attackPower += 12;
+                console.log(attackPower)
+                $("#infoAttack").html("You attacked " + enemyName + " for " + attackPower + " damages");
+            }
+
+        })
+
+
+    }
 
     //5. when attacked the health points will be minus.
 

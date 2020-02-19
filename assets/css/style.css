@@ -17,3 +17,11 @@ div.charBlock {
     text-align: center;
     color: chocolate;
 }
+
+div.rival {
+    display: inline-block;
+    width: 200px;
+    background-color: red;
+    text-align: center;
+    color: black;
+}
