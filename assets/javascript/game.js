@@ -65,18 +65,22 @@ $(document).ready(function () {
                 alert("char1 has been clicked")
                 $("#charBlock1").appendTo("#defender").addClass("rival rival1");
                 couterAttack = 8;
+                enemyName = "ChewBacca";
             } else if ((this.id == "char2") && ($("#defender").html().length == 0)) {
                 alert("char2 has been clicked")
                 $("#charBlock2").appendTo("#defender").addClass("rival rival2");
                 couterAttack = 10;
+                enemyName = "Darth Vader";
             } else if ((this.id == "char3") && ($("#defender").html().length == 0)) {
                 alert("char3 has been clicked")
                 $("#charBlock3").appendTo("#defender").addClass("rival rival3");
                 couterAttack = 12;
+                enemyName = "Luke Walker";
             } else if ((this.id == "char4") && ($("#defender").html().length == 0)) {
                 alert("char4 has been clicked")
                 $("#charBlock4").appendTo("#defender").addClass("rival rival4");
                 couterAttack = 15;
+                enemyName = "Yoda";
             }
         })
     }
@@ -86,21 +90,17 @@ $(document).ready(function () {
     attckPwr();
 
 
-
     //4. The attack power of chosen character will increase for every button attack clicked.
     function attckPwr() {
         var attackPower = 0;
 
         $("#attackBtn").on("click", function () {
-            if ($("div.rivalArea > div").hasClass("rival")) {
-                enemyName = $("#name").html();
-                console.log(enemyName);
-            }
 
             if ($("#char1").is(":disabled")) {
                 attackPower += 6;
                 console.log(attackPower)
                 $("#infoAttack").html("You attacked " + enemyName + " for " + attackPower + " damages");
+                $("#infoCounterAttck").html(enemyName + " attacked you back for " + couterAttack + " damages");
 
             } else if ($("#char2").is(":disabled")) {
                 attackPower += 8;
