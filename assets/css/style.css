@@ -1,0 +1,19 @@
+body {
+    background-color: #202442;
+    color: #F3F3F6;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0 auto;
+}
+
+button img {
+    width: 150px;
+    height: auto;
+}
+
+div.charBlock {
+    display: inline-block;
+    width: 200px;
+    background-color: bisque;
+    text-align: center;
+    color: chocolate;
+}
